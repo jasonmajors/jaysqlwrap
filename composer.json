@@ -1,0 +1,22 @@
+{
+	"name": "jmajors/jaysqlwrap",
+	"type": "library",
+	"description": "A basic PHP wrapper for SQL statements",
+	"keywords": ["SQL, wrapper"],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Jason Majors",
+			"email": "jasonrmajors@gmail.com",
+			"homepage": "https://github.com/jasonmajors"
+		}
+	],
+	"require": {
+		"php": ">=5.3.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Jaywrap\\": "src/"
+		}
+	}
+}
