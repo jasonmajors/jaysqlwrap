@@ -2,7 +2,7 @@
     "name": "jmajors/jaysqlwrap",
     "type": "library",
     "description": "A basic PHP wrapper for SQL statements",
-    "keywords": ["SQL, wrapper"],
+    "keywords": ["SQL", "wrapper"],
     "license": "MIT",
     "authors": [
         {
