@@ -1,7 +1,7 @@
 <?php
 namespace Jaywrap;
 
-class DbWrapper
+class Jaywrap
 {
     /**
     * @var PDO connection instance
@@ -11,7 +11,7 @@ class DbWrapper
     /**
     * Make a PDO connection with the DB information from environmental variables
     *
-    * @return DbWrapper instance
+    * @return Jaywrap instance
     */
     public function __construct()
     {
