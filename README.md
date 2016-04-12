@@ -22,7 +22,7 @@ $db = new Jaywrap\Jaywrap();
 ```
 INSERT queries
 --------------
-The select method takes 2 arguements: The name of the table as a string, and an array of the data to be inserted. The keys for the data array need to match the column names of the table. For example:
+The insert method takes 2 arguements: The name of the table as a string, and an array of the data to be inserted. The keys for the data array need to match the column names of the table. For example:
 ```php
 $data = array('username' => 'jasonmajors', 'password' => 'somehashedpassword', 'age' => 28, 'language' => 'php');
 $success = $db->insert('table', $data);
