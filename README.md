@@ -20,7 +20,7 @@ Create a Jaywrap instance:
 ```php
 $db = new Jaywrap\Jaywrap();
 ```
-Select queries
+SELECT queries
 -------------
 The select method takes 2 arguements: The name of the table as a string, and an array of the conditions. The results will be returned as an array.
 For example:
