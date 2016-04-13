@@ -72,13 +72,20 @@ class Jaywrap
     * @param array $conditions Associative array where $key is the column name and $val is the value of interest
     * @return Array of the results with each row as an array of k => v pairs
     */
-    public function select($table, array $conditions)
+    public function select($table, array $conditions=Null)
     {
-        list($prepStatement, $executeValues) = $this->getSelectStatement($table, $conditions);
-        $statement = $this->_conn->prepare($prepStatement);
-        $statement->execute($executeValues);
+        if (isset($conditions)) {
+            list($prepStatement, $executeValues) = $this->getSelectStatement($table, $conditions);
+            $statement = $this->_conn->prepare($prepStatement);
+            $statement->execute($executeValues);
 
-        return $statement->fetchAll();
+            return $statement->fetchAll();
+        } else {
+            $statement = $this->_conn->prepare("SELECT * FROM $table");
+            $statement->execute();
+            
+            return $statement->fetchAll();
+        }
     }
 
     /**
