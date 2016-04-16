@@ -22,18 +22,39 @@ $db = new Jaywrap\Jaywrap();
 ```
 INSERT queries
 --------------
-The insert method takes 2 arguements: The name of the table as a string, and an array of the data to be inserted. The keys for the data array need to match the column names of the table. For example:
+The insert method has 2 parameters: The name of the table as a string, and an array of the data to be inserted. The keys for the data array need to match the column names of the table. For example:
 ```php
 $data = array('username' => 'jasonmajors', 'password' => 'somehashedpassword', 'age' => 28, 'language' => 'php');
-$success = $db->insert('table', $data);
+$success = $db->insert('users', $data);
 ```
 SELECT queries
 -------------
-The select method takes 2 arguements: The name of the table as a string, and an array of the conditions. The results will be returned as an array.
-For example:
+The select method has 2 parameters: The name of the table as a string, and an array of the conditions (optional). The results will be returned as an array.
+
+
+Select all the items in a table:
+```php
+$results = $db->select('sometable');
+
+print_r($results);
+```
+```
+Array ( 
+	[0] => Array ( 
+			[columnX] => someValue 
+			[0] => someValue 
+	) 
+	[1] => Array (
+		 	[columnY] => someOtherValue 
+		 	[0] => someOtherValue
+	) 
+)
+```
+
+SELECT with conditions:
 ```php
 $conditions = array('username' => 'jasonmajors', 'language' => 'php');
-$results = $db->select('table', $conditions);
+$results = $db->select('users', $conditions);
 ```
 The above would execute a prepared statement of:
 ```sql
@@ -47,4 +68,13 @@ $results = $db->select('table', $conditions);
 The above would execute:
 ```sql
 SELECT * FROM table WHERE username IN ('jasonmajors', 'johndoe', 'janedoe');
+```
+
+UPDATE
+------
+The update method has 3 parameters: The name of the table as a string, an array of the update data, and an array of the conditions.
+```php
+$updates = array('language' => 'Python');
+$conditions = array('username' => 'jasonmajors');
+$success = $db->update('users', $updates, $conditions);
 ```
