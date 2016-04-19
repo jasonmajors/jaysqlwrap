@@ -1,17 +1,13 @@
-Jay SQL Wrap
-============
-
+# Jay SQL Wrap
 A simple PHP class for implementing basic MySQL queries as prepared PDO statements.
 
-Installation with Composer
---------------------------
+## Installation with Composer
 ```shell
 curl -s http://getcomposer.org/installer | php
 php composer.phar require jmajors/jaysqlwrap
 ```
 
-Usage
------
+## Usage
 Include composer's autoloader:
 ```php
 require __DIR__ . '/vendor/autoload.php';
@@ -20,38 +16,42 @@ Create a Jaywrap instance:
 ```php
 $db = new Jaywrap\Jaywrap();
 ```
-INSERT queries
---------------
+### INSERT
 The insert method has 2 parameters: The name of the table as a string, and an array of the data to be inserted. The keys for the data array need to match the column names of the table. For example:
 ```php
 $data = array('username' => 'jasonmajors', 'password' => 'somehashedpassword', 'age' => 28, 'language' => 'php');
 $success = $db->insert('users', $data);
 ```
-SELECT queries
--------------
-The select method has 2 parameters: The name of the table as a string, and an array of the conditions (optional). The results will be returned as an array.
-
+### SELECT
+The select method has 2 parameters: The name of the table as a string, and an array of the WHERE conditions (optional). 
 
 Select all the items in a table:
 ```php
 $results = $db->select('sometable');
-
+```
+The results will be returned as an array.
+```php
 print_r($results);
-```
-```
+
+/*
 Array ( 
 	[0] => Array ( 
 			[columnX] => someValue 
 			[0] => someValue 
+			[columnY] => someOtherValue
+			[1] => someOtherValue
 	) 
 	[1] => Array (
-		 	[columnY] => someOtherValue 
-		 	[0] => someOtherValue
+		 	[columnX] => someOtherValueTwo 
+		 	[0] => someOtherValueTwo
+		 	[columnY] => someOtherValueThree
+		 	[1] => someOtherValueThree
 	) 
 )
+*/
 ```
 
-SELECT with conditions:
+#### SELECT with conditions:
 ```php
 $conditions = array('username' => 'jasonmajors', 'language' => 'php');
 $results = $db->select('users', $conditions);
@@ -70,11 +70,17 @@ The above would execute:
 SELECT * FROM table WHERE username IN ('jasonmajors', 'johndoe', 'janedoe');
 ```
 
-UPDATE
-------
-The update method has 3 parameters: The name of the table as a string, an array of the update data, and an array of the conditions.
+### UPDATE
+The update method has 3 parameters: The name of the table as a string, an array of the update data, and an array of the WHERE conditions.
 ```php
 $updates = array('language' => 'Python');
 $conditions = array('username' => 'jasonmajors');
 $success = $db->update('users', $updates, $conditions);
+```
+
+### DELETE
+The delete method has 2 parameters: The name of the table as a string, and an array of the WHERE conditions.
+```php
+$delete = array('username' => 'jasonmajors');
+$success = $db->delete('users', $updates, $conditions);
 ```
