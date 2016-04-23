@@ -22,9 +22,15 @@ class Jaywrap
         $dbname = getenv('DB_NAME');
         
         try {
-            $this->_conn = new \PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+            $this->_conn = new \PDO("mysql:host=$host;dbname=$dbname", 
+                                    $username, 
+                                    $password, 
+                                    array(
+                                        \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
+                                    )
+                                );
         }  catch(PDOException $e) {
-            echo 'ERROR: ' . $e->getMessage();
+            echo 'Connection failed: ' . $e->getMessage();
         }
     }
 
