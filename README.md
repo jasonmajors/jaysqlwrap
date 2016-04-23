@@ -8,10 +8,16 @@ php composer.phar require jmajors/jaysqlwrap
 ```
 
 ## Usage
-Include composer's autoloader:
+Add composer's autoloader to your project:
 ```php
 require __DIR__ . '/vendor/autoload.php';
 ```
+The wrapper will make a database connection upon instantiation using the database information in an application's .env file. If you don't have an .env file, you'll need to create one. See https://github.com/vlucas/phpdotenv. Note that this has been included with the wrapper, you'll just need to create the .env file and load .env in your application:
+```php
+$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv->load();
+```
+
 Create a Jaywrap instance:
 ```php
 $db = new Jaywrap\Jaywrap();
