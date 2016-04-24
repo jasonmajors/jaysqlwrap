@@ -1,5 +1,5 @@
 # Jay SQL Wrap
-A simple PHP class for creating and executing basic SQL prepared statements as object methods.
+A simple PHP class for creating and executing basic SQL prepared statements as object methods. This provides an easy way to interact with a database while staying safe from SQL injection.
 
 ## Installation with Composer
 ```shell
