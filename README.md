@@ -40,21 +40,21 @@ The results will be returned as an array.
 print_r($results);
 
 /*
-Array ( 
-	[0] => Array ( 
-			[columnX] => someValue 
-			[0] => someValue 
-			[columnY] => someOtherValue
-			[1] => someOtherValue
-	) 
-	[1] => Array (
-		 	[columnX] => someOtherValueTwo 
-		 	[0] => someOtherValueTwo
-		 	[columnY] => someOtherValueThree
-		 	[1] => someOtherValueThree
-	) 
-)
-*/
+ *	Array ( 
+ *		[0] => Array ( 
+ *				[columnX] => someValue 
+ *				[0] => someValue 
+ * 				[columnY] => someOtherValue
+ *				[1] => someOtherValue
+ *		) 
+ *		[1] => Array (
+ *			 	[columnX] => someOtherValueTwo 
+ * 			 	[0] => someOtherValueTwo
+ *			 	[columnY] => someOtherValueThree
+ *			 	[1] => someOtherValueThree
+ * 		) 
+ *	)
+ */
 ```
 
 #### SELECT with conditions:

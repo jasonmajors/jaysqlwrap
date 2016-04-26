@@ -13,24 +13,28 @@ class Jaywrap
     *
     * @return Jaywrap instance
     */
-    public function __construct()
+    public function __construct($conn=null)
     {
-        // Set database information
-        $username = getenv('DB_USER');
-        $password = getenv('DB_PASS');
-        $host = getenv('DB_HOST');
-        $dbname = getenv('DB_NAME');
-        
-        try {
-            $this->_conn = new \PDO("mysql:host=$host;dbname=$dbname", 
-                                    $username, 
-                                    $password, 
-                                    array(
-                                        \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
-                                    )
-                                );
-        }  catch(PDOException $e) {
-            echo 'Connection failed: ' . $e->getMessage();
+        if ($conn) {
+            $this->_conn = $conn;
+        } else {
+            // Set database information
+            $username = getenv('DB_USER');
+            $password = getenv('DB_PASS');
+            $host = getenv('DB_HOST');
+            $dbname = getenv('DB_NAME');
+            
+            try {
+                $this->_conn = new \PDO("mysql:host=$host;dbname=$dbname", 
+                                        $username, 
+                                        $password, 
+                                        array(
+                                            \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
+                                        )
+                                    );
+            }  catch(PDOException $e) {
+                echo 'Connection failed: ' . $e->getMessage();
+            }
         }
     }
 
