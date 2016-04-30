@@ -3,9 +3,9 @@ A simple PHP class for creating and executing basic SQL prepared statements as o
 
 ## Installation with Composer
 ```shell
-curl -s http://getcomposer.org/installer | php
-php composer.phar require jmajors/jaysqlwrap
+require jmajors/jaysqlwrap
 ```
+See https://getcomposer.org/download/ for how to setup Composer.
 
 ## Usage
 Add composer's autoloader to your project:
