@@ -232,7 +232,7 @@ class Jaywrap
     * @param Array The values in the same order as the ?s to replace
     * @return PDO Statement
     */
-    public function query($table, string $pdoStatement, array $values)
+    public function query($table, $pdoStatement, array $values)
     {
         $statement = $this->_conn->prepare($pdoStatement);
         $statement->execute($values);
