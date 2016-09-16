@@ -223,4 +223,21 @@ class Jaywrap
 
         return array($prepStatement, $executeValues);
     }
+
+    /**
+    * Executes a PDO statement with an array of the values to replace the ?s with
+    *
+    * @param string $table Name of the table
+    * @param string PDO statement with ? for value placeholders
+    * @param Array The values in the same order as the ?s to replace
+    * @return PDO Statement
+    */
+    public function query($table, string $pdoStatement, array $values)
+    {
+        $statement = $this->_conn->prepare($pdoStatement);
+        $statement->execute($values);
+
+        return $statement;
+    }
+}
 }
