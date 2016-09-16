@@ -240,4 +240,3 @@ class Jaywrap
         return $statement;
     }
 }
-}
