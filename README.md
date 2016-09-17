@@ -3,7 +3,7 @@ A simple PHP class for creating and executing basic SQL prepared statements as o
 
 ## Installation with Composer
 ```shell
-require jmajors/jaysqlwrap
+composer require jmajors/jaysqlwrap
 ```
 See https://getcomposer.org/download/ for how to setup Composer.
 
